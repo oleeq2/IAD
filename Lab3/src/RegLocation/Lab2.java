@@ -58,6 +58,7 @@ public class Lab2
         int i; 
         ArrayList<int[]> BrIndexList = new ArrayList<int[]>();
         int BrIndex = -1;
+        int BrClosed = 0;
 
         for(i = 0; i < input.length(); i++)
             switch(input.charAt(i))
@@ -72,10 +73,16 @@ public class Lab2
                 case '}':
                     try
                     {
-                        int[] indexes = BrIndexList.get(BrIndex); //WARNING 
+                        int snd_index;
+                        if(BrIndex == 0)
+                            snd_index = 0;
+                        else
+                            snd_index = BrIndex + BrClosed;
+                        int[] indexes = BrIndexList.get(snd_index);
                         indexes[1] = i;
 
                         BrIndex--;
+                        BrClosed++;
                     }
                     catch(IndexOutOfBoundsException ex)
                     {
@@ -84,19 +91,17 @@ public class Lab2
                     break;
             }
         //TODO BrListIndex check
-        i=0;
+        int iter = 0;
         for(int[] indexes : BrIndexList)
         {
-
-            if(i == 0)
+            iter++;
+            if(iter == 1)
                 continue;
-            String substr = input.substring(indexes[0]+1,indexes[1]-1);
-            System.out.println(substr);
+            String substr = input.substring(indexes[0]+1,indexes[1]);
             String[] numbers = substr.split(",");
             float x = Float.parseFloat(numbers[0]);
             float y = Float.parseFloat(numbers[1]);
 
-            i++;
             marks.add(new Mark(x,y));
         }
         return marks;
