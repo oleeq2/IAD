@@ -52,7 +52,6 @@ public class Lab2
     
     static TreeSet<Mark> parseMarks(String input) throws NumberFormatException
     {
-
         TreeSet<Mark> marks = new TreeSet<Mark>();
 
         int i; 
