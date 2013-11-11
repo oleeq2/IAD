@@ -1,5 +1,9 @@
 package RegLocation;
-import java.lang.Math; 
+import java.lang.Math;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 public class Silhouette
 {
     float R;
@@ -54,4 +58,5 @@ public class Silhouette
             ret = 1;
         return ret;
     }
+
 }
