@@ -4,13 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 
-
 public class SilhouetteView extends JComponent {
 
     double R;
 //    static final int SilhouetteColor = ;
-
-
     public SilhouetteView(double R)
     {
         this.R = R;
@@ -60,22 +57,12 @@ public class SilhouetteView extends JComponent {
         x_points[0] = x_center;
         y_points[0] = y_center;
 
-        x_points[1] = x_center - iR;
+        x_points[1] = x_center + iR;
         y_points[1] = y_center;
 
         x_points[2] = x_center;
         x_points[2] = y_center + iR;
 
         return new Polygon(x_points,y_points,n_points);
-    }
-
-    public static void main(String[] args)
-    {
-        JWindow win = new JWindow();
-
-        win.add(new SilhouetteView(5));
-        win.setBounds(60, 60, 100, 100);
-        win.setVisible(true);
-        while(true);
     }
 }
